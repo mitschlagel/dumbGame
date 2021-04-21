@@ -14,54 +14,70 @@ const randomInt = (min = 1, max = 28) => {
 }
 
 
+const guess = document.querySelector("#guess");
+const button = document.querySelector("#guess__button");
+const counterDiv = document.querySelector(".clicks__remaining");
+let numGuesses = 0;
 
 // Populate each cell with a number and style on hover and clicks
 const cellArray = document.querySelectorAll(".cell");
 // console.log(cellArray);
 
+const assignedNums = [];
+
 cellArray.forEach((cell) => {
-
-    cell.addEventListener(
-        "mouseenter",
-        () => {
-            cell.classList.add("highlight");
-        },
-        false
-    );
-
-    cell.addEventListener(
-        "mouseleave",
-        () => {
-            cell.classList.remove("highlight");
-        },
-        false
-    );
 
     const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
     console.log(randomColor);
+    let numClicks = 0;
     cell.addEventListener(
         "click",
         (e) => {
             cell.setAttribute("style", "background-color: " + randomColor + ";");
             console.log(e);
+
+            // populate each cell with a random int 1-28, no repeats!
+            if (numClicks === 0 && numGuesses != 0) {
+                let num = 0;
+                do {
+                    num = randomInt();
+                    assignedNums.push(num)
+                } while (!assignedNums.includes(num));
+
+
+                cell.innerHTML = num;
+                console.log(assignedNums);
+                let currentGuess = document.querySelector(".clicks__remaining");
+
+
+                counterDiv.innerHTML = currentGuess.textContent - 1;  // update counter on page
+                numGuesses--;
+
+            }
         },
         false
     );
 
-    cell.addEventListener(
-        "click",
-        (e) => {
-            cell.innerText = randomInt();
-            console.log(e);
-        },
-        false
-    );
+
 });
 
 const targetGenerator = () => {
     target = document.querySelector(".num__target");
-
     target.innerHTML = randomInt();
 }
 
+
+button.addEventListener(
+    "click",
+    () => {
+        console.log(guess.value);
+        counterDiv.innerHTML = guess.value; // display guess on page
+        numGuesses = guess.value; // to keep track of how many guess have been used.
+    },
+    false
+);
+
+const clicksRemaining = (
+
+) => { };
 targetGenerator();
