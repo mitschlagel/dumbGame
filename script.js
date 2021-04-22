@@ -32,13 +32,16 @@ cellArray.forEach((cell) => {
     cell.addEventListener("click",
         (e) => {
             cell.style.backgroundColor = randomColor();
-            cell.innerHTML = nums.pop();  // Populate each cell from int array
-            clicksRemaining.innerText--;
-            if (clicksRemaining.innerText == 0) {
-                console.log("YOU LOSE");
-            } else if (cell.innerText === numTarget.innerText) {
-                console.log("YOU WIN");
+            if (nums.length > 0) {
+                cell.innerHTML = nums.pop();  // Populate each cell from int array
+                clicksRemaining.innerText--;
+                if (clicksRemaining.innerText == 0) {
+                    console.log("YOU LOSE");
+                } else if (cell.innerText === numTarget.innerText) {
+                    console.log("YOU WIN");
+                }
             }
+
             console.log(nums.length);
         },
         false
