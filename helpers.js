@@ -10,7 +10,17 @@ export const randomInt = (min = 1, max = 28) => {
 export const randomColor = () => {
     let result = "#" + Math.floor(Math.random() * 16777215).toString(16);
     return result;
+};
 
+export function numArray(min = 1, max = 28) {
+    const arr = [];
+    while (arr.length < 28) {
+        let num = randomInt();
+        if (!arr.includes(num)) {
+            arr.push(num);
+        }
+    }
+    return arr;
 };
 
 

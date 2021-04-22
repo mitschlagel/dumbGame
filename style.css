@@ -36,9 +36,11 @@ header {
   height: 6rem;
   background-color: hsl(0, 0%, 90%);
   text-align: center;
+  cursor: pointer;
 }
 
-.cell span {
+.cell {
+  display: block;
   font-size: 5rem;
   text-align: center;
   color: white;

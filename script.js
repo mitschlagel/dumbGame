@@ -1,4 +1,4 @@
-import { randomInt, randomColor } from "./helpers.js";
+import { randomInt, randomColor, numArray } from "./helpers.js";
 
 // If user guess number of tries required, they win.
 
@@ -6,7 +6,7 @@ import { randomInt, randomColor } from "./helpers.js";
 
 // Random number 1-28 is generated as the title on page load.
 const numTarget = document.querySelector(".num__target");
-numTarget.innerHTML = randomInt();
+numTarget.innerText = randomInt();
 
 // User guesses how many tries it will take to find the number
 // Guess is displayed on page
@@ -25,24 +25,25 @@ button.addEventListener(
 );
 
 // Numbers randomly assigned to each box
-const cellArray = document.querySelectorAll(".cell span");
-const assignedNums = [];
+const cellArray = document.querySelectorAll(".cell");
+const nums = numArray(); // Create int array 1-28 in random order
 
 cellArray.forEach((cell) => {
-    let num = randomInt()
-    assignedNums.push(num);
-    cell.innerHTML = num;
-    cell.style.display = "none"; // hide nums from user
     cell.addEventListener("click",
-        () => {
-
-            // cell.style.display = "block";  // why does this work block => none but not other way around?
+        (e) => {
             cell.style.backgroundColor = randomColor();
-
-            console.log(bg);
+            cell.innerHTML = nums.pop();  // Populate each cell from int array
+            clicksRemaining.innerText--;
+            if (clicksRemaining.innerText == 0) {
+                console.log("YOU LOSE");
+            } else if (cell.innerText === numTarget.innerText) {
+                console.log("YOU WIN");
+            }
+            console.log(nums.length);
         },
         false
     );
+
 });
 
-// User clicks on boxes until they find their number
+//TO DO: stop the event listener when num array is empty
