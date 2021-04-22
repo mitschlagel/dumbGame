@@ -50,3 +50,4 @@ cellArray.forEach((cell) => {
 });
 
 //TO DO: stop the event listener when num array is empty
+
