@@ -12,7 +12,7 @@ export const randomColor = () => {
     return result;
 };
 
-export function numArray(min = 1, max = 28) {
+export function numArray() {
     const arr = [];
     while (arr.length < 28) {
         let num = randomInt();
