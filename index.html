@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>dumbGame</title>
     <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-    <script src="./script.js" defer></script>
+    <script src="./helpers.js" type="module" defer></script>
+    <script src="./script.js" type="module" defer></script>
   </head>
   <body>
     <header>
@@ -19,38 +20,41 @@
           <button type="button" id="guess__button">guess</button>
         </form>
       </div>
-      <div class="clicks__remaining"></div>
+      <div class="tracker">
+        guess: <span id="you__guessed"></span> clicks remaining:
+        <span id="clicks__remaining"></span>
+      </div>
     </header>
     <main class="container">
       <ul class="grid">
-        <li class="cell cell01"></li>
-        <li class="cell cell02"></li>
-        <li class="cell cell03"></li>
-        <li class="cell cell04"></li>
-        <li class="cell cell05"></li>
-        <li class="cell cell06"></li>
-        <li class="cell cell07"></li>
-        <li class="cell cell08"></li>
-        <li class="cell cell09"></li>
-        <li class="cell cell10"></li>
-        <li class="cell cell11"></li>
-        <li class="cell cell12"></li>
-        <li class="cell cell13"></li>
-        <li class="cell cell14"></li>
-        <li class="cell cell15"></li>
-        <li class="cell cell16"></li>
-        <li class="cell cell17"></li>
-        <li class="cell cell18"></li>
-        <li class="cell cell19"></li>
-        <li class="cell cell20"></li>
-        <li class="cell cell21"></li>
-        <li class="cell cell22"></li>
-        <li class="cell cell23"></li>
-        <li class="cell cell24"></li>
-        <li class="cell cell25"></li>
-        <li class="cell cell26"></li>
-        <li class="cell cell27"></li>
-        <li class="cell cell28"></li>
+        <li class="cell cell01"><span></span></li>
+        <li class="cell cell02"><span></span></li>
+        <li class="cell cell03"><span></span></li>
+        <li class="cell cell04"><span></span></li>
+        <li class="cell cell05"><span></span></li>
+        <li class="cell cell06"><span></span></li>
+        <li class="cell cell07"><span></span></li>
+        <li class="cell cell08"><span></span></li>
+        <li class="cell cell09"><span></span></li>
+        <li class="cell cell10"><span></span></li>
+        <li class="cell cell11"><span></span></li>
+        <li class="cell cell12"><span></span></li>
+        <li class="cell cell13"><span></span></li>
+        <li class="cell cell14"><span></span></li>
+        <li class="cell cell15"><span></span></li>
+        <li class="cell cell16"><span></span></li>
+        <li class="cell cell17"><span></span></li>
+        <li class="cell cell18"><span></span></li>
+        <li class="cell cell19"><span></span></li>
+        <li class="cell cell20"><span></span></li>
+        <li class="cell cell21"><span></span></li>
+        <li class="cell cell22"><span></span></li>
+        <li class="cell cell23"><span></span></li>
+        <li class="cell cell24"><span></span></li>
+        <li class="cell cell25"><span></span></li>
+        <li class="cell cell26"><span></span></li>
+        <li class="cell cell27"><span></span></li>
+        <li class="cell cell28"><span></span></li>
       </ul>
     </main>
   </body>
