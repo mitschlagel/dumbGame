@@ -1,5 +1,5 @@
 import { randomInt, randomColor, numArray } from "./helpers.js";
-// import loserContent from "./GameOver.js";
+import { winner, loser } from "./GameOver.js";
 
 
 const numTarget = document.querySelector(".num__target");
@@ -10,6 +10,7 @@ const guess = document.querySelector("#guess");
 const button = document.querySelector("#guess__button");
 const displayGuess = document.querySelector("#you__guessed");
 const clicksRemaining = document.querySelector("#clicks__remaining");
+const totalScore = document.querySelector("#total__score")
 button.addEventListener(
     "click",
     () => {
@@ -31,7 +32,7 @@ button.addEventListener(
 
             cell.addEventListener("click",
                 (e) => {
-                    console.log(displayGuess.value);
+
 
                     // Check if num has alreay been assigned
                     if (!isSetArray[e.target.className.substr(-2)]) {
@@ -44,12 +45,14 @@ button.addEventListener(
 
                         if (clicksRemaining.innerText == 0) {
 
-                            const loser = document.querySelector(".loser");
-                            loser.style.display = "block";
+                            loser();
 
-                            console.log("YOU LOSE");
                         } else if (cell.innerText === numTarget.innerText) {
-                            console.log("YOU WIN");
+                            winner();
+                            totalScore.innerText += 100;
+
+
+
                         }
                     }
 
